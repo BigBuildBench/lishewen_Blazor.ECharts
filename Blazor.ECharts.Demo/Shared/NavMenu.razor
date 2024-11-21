@@ -1,0 +1,117 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Blazor.ECharts.Demo</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-menu" aria-hidden="true"></span> 目录
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="dashboard">
+                <span class="oi oi-bar-chart" aria-hidden="true"></span> Dashboard
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="bar/bar3">
+                <span class="oi oi-bar-chart" aria-hidden="true"></span> Bar(柱状图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="line/line1">
+                <span class="oi oi-external-link" aria-hidden="true"></span> Line(折线图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="pie/pie1">
+                <span class="oi oi-pie-chart" aria-hidden="true"></span> Pie(饼图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="radar/radar1">
+                <span class="oi oi-random" aria-hidden="true"></span> Radar(雷达图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="timeline/timeline">
+                <span class="oi oi-timer" aria-hidden="true"></span> Timeline(时间轴)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="scatter/scatter">
+                <span class="oi oi-script" aria-hidden="true"></span> Scatter(散点图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="funnel/funnel">
+                <span class="oi oi-fullscreen-enter" aria-hidden="true"></span> Funnel(漏斗图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="gauge/gauge">
+                <span class="oi oi-dashboard" aria-hidden="true"></span> Gauge(仪表盘)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="sunburst/sunburst">
+                <span class="oi oi-sun" aria-hidden="true"></span> Sunburst(旭日图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="sankey/sankey">
+                <span class="oi oi-key" aria-hidden="true"></span> Sankey(桑基图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="tree/tree">
+                <span class="oi oi-transfer" aria-hidden="true"></span> Tree(树图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="treemap/treemap">
+                <span class="oi oi-trash" aria-hidden="true"></span> Treemap(矩形树图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="graph/graph">
+                <span class="oi oi-random" aria-hidden="true"></span> Graph(关系图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="wordcloud/wordcloud">
+                <span class="oi oi-cloud" aria-hidden="true"></span> WordCloud(词云图)
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="map/wuzhoubus">
+                <span class="oi oi-map" aria-hidden="true"></span> 梧州公交路线图
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="bar/bar1">
+                <span class="oi oi-bar-chart" aria-hidden="true"></span> 事件回调
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="map/BeefcutsFrance">
+                <span class="oi oi-map" aria-hidden="true"></span>  庖丁解牛
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

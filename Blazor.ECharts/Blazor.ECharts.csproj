@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+	<Import Project="..\Version.props" />
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<Version>$(PackageVersion)</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>lishewen</Authors>
+		<IsPackable>true</IsPackable>
+		<Description>
+			Blazor版本的ECharts图表组件
+			开源地址：https://github.com/lishewen/Blazor.ECharts
+			使用方式见Demo项目
+		</Description>
+		<AssemblyName>Blazor.ECharts</AssemblyName>
+		<RootNamespace>Blazor.ECharts</RootNamespace>
+		<PackageProjectUrl>https://github.com/lishewen/Blazor.ECharts</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/lishewen/Blazor.ECharts</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<projectUrl>https://github.com/lishewen/Blazor.ECharts</projectUrl>
+		<PackageTags>Blazor,.net core,ECharts</PackageTags>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageIcon>favicon.png</PackageIcon>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+		<None Include="..\readme.md" Pack="true" PackagePath="\" />
+		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
+		<None Include="..\favicon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Components\" />
+	</ItemGroup>
+
+</Project>

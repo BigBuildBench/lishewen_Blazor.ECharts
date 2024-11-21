@@ -1,0 +1,127 @@
+﻿@page "/line/line1"
+@attribute [RouteName("多实例切换主题")]
+@using Blazor.ECharts.Options
+@using Blazor.ECharts.Options.Enum
+@using L = Blazor.ECharts.Options.Series.Line
+
+<div>
+    <button @onclick="ChangeTheme">切换主题 @theme</button>
+</div>
+
+<div class="chart-container">
+    <ELine Option="@Option1" Class="chart-normal" Theme="@theme"></ELine>
+    <ELine Option="@Option2" Class="chart-normal" Theme="@theme"></ELine>
+    <ELine Option="@Option3" Class="chart-normal" Theme="@theme"></ELine>
+</div>
+
+@code{
+    private EChartsOption<L.Line> Option1;
+    private EChartsOption<L.Line> Option2;
+    private EChartsOption<L.Line> Option3;
+    private string theme = "light";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Option1 = new()
+        {
+            Title = new()
+            {
+                Text = "折线图"
+            },
+            YAxis = new()
+            {
+                new()
+                {
+                    Type = AxisType.Value
+                }
+            },
+            XAxis = new()
+            {
+                new()
+                {
+                    Type = AxisType.Category,
+                    Data = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
+                }
+            },
+            Series = new() {
+                new L.Line()
+                {
+                    Type = "line",
+                    Data = new[] { 820, 932, 901, 934, 1290, 1330, 1320 }
+                }
+            }
+        };
+        Option2 = new()
+        {
+            Title = new()
+            {
+                Text = "区域图"
+            },
+            YAxis = new()
+            {
+                new()
+                {
+                    Type = AxisType.Value
+                }
+            },
+            XAxis = new()
+            {
+                new()
+                {
+                    Type = AxisType.Category,
+                    Data = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" },
+                    BoundaryGap = false
+                }
+            },
+            Series = new() {
+                new L.Line()
+                {
+                    Type = "line",
+                    Data = new[] { 820, 932, 901, 934, 1290, 1330, 1320 },
+                    AreaStyle = new AreaStyle()
+                }
+            }
+        };
+        Option3 = new()
+        {
+            Title = new()
+            {
+                Text = "平滑折线图"
+            },
+            YAxis = new()
+            {
+                new()
+                {
+                    Type = AxisType.Value
+                }
+            },
+            XAxis = new()
+            {
+                new()
+                {
+                    Type = AxisType.Category,
+                    Data = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
+                }
+            },
+            Series = new()
+            {
+                new L.Line()
+                {
+                    Type = "line",
+                    Data = new[] { 820, 932, 901, 934, 1290, 1330, 1320 },
+                    Smooth = true
+                }
+            }
+        };
+    }
+
+    private Task ChangeTheme()
+    {
+        theme = theme == "light" ? "dark" : "light";
+        //通知组件其状态已更改。 如果适用，这将导致重新呈现组件
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+}
